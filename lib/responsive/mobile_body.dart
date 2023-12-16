@@ -40,13 +40,13 @@ class _MyMobileBodyState extends State<MyMobileBody> {
   var queryResponse  = { 'default' : 'Hoşgeldin' };
   TextEditingController _controller = TextEditingController();
   TextEditingController _barcodeController = TextEditingController();
+  TextEditingController _scanController = TextEditingController();
   @override
 
   void initState() {
 
     super.initState();
-    _controller.text = '89.252.188.10:2207';
-    _barcodeController.text = '8682921261146';
+    _controller.text = readData();
 
     //audioPlayer = AudioPlayer();
     //audioCache = AudioCache();
@@ -154,7 +154,6 @@ class _MyMobileBodyState extends State<MyMobileBody> {
             'plartform': plartform,
             //89.252.188.10:2207
           },
-          timeoutSeconds :30,
           bodyEncoding: RequestBodyEncoding.FormURLEncoded);
       setState(() {
         dynamic errorhandler = jsonDecode(r.body);
